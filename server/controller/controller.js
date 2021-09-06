@@ -54,3 +54,5 @@ exports.find = (req, res) => {
             })
     }
 }
+
+// Actualizar un usuario por ID
