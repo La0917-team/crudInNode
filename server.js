@@ -6,7 +6,7 @@ const bodyparser = require('body-parser');
 const path = require('path');
 
 // Connection to our database
-// const connectDB = require('./server/database/connection');
+const connectDB = require('./server/database/connection');
 
 const app = express();
 
@@ -17,14 +17,14 @@ const PORT = process.env.PORT || 8080
 app.use(morgan('tiny'))
 
 // MongoDB connection
-// connectDB();
+connectDB();
 
 // parse request to body-parser
 app.use(bodyparser.urlencoded({extended : true}))
 
 // Set views engine
 app.set("view engine", "ejs");
-// app.set("views", path.resolve(__dirname, "views/ejs"))
+app.set("views", path.resolve(__dirname, "views/ejs"))
 
 // Loading static assets
 app.use('/css', express.static(path.resolve(__dirname, "assets/css")))
