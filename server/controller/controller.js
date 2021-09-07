@@ -75,7 +75,8 @@ exports.update = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({message : "Error al actualizar la informacion de usuario"})
-       
+        })
+}
 // Borrar un usuario usando el ID
 
 exports.delete = (req, res) => {
@@ -97,4 +98,3 @@ exports.delete = (req, res) => {
                 });
             });
         }
-}
