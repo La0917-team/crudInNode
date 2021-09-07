@@ -55,3 +55,46 @@ exports.find = (req, res) => {
     }
 }
 
+// Actualizar un usuario por ID
+
+exports.update = (req, res) => {
+    if(!req.body){
+        return res
+            .status(400)
+            .send({message : "No podemos actualizar datos vacios"})
+    }
+
+    const id = req.params.id;
+    Userdb.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
+        .then(data => {
+            if(!data){
+                res.status(404).send({message : `No puedo actualizar el  ${id}`})
+            } else {
+                res.send(data)
+            }
+        })
+        .catch(err => {
+            res.status(500).send({message : "Error al actualizar la informacion de usuario"})
+       
+// Borrar un usuario usando el ID
+
+exports.delete = (req, res) => {
+    const id = req.params.id;
+
+    Userdb.findByIdAndDelete(id)
+        .then(data => {
+            if(!data){
+                res.status(404).send({message : "No puedo borrar esto, no existe el ID"})
+            } else {
+                res.send({
+                    message: "El usuario fue eliminado con exito"
+                })
+                }
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message : "No puedo borrar un usuario con este ID"
+                });
+            });
+        }
+}
