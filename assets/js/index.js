@@ -1,3 +1,4 @@
+// Actualizamos el usuario
 $("#update_user").submit(function(event){
     event.preventDefault();
 
@@ -19,3 +20,9 @@ $("#update_user").submit(function(event){
         alert("El usuario fue actualizado con exito");
     })
 })
+
+// Agregar usuarios
+$("#add_user").submit(function(event){
+    alert("El usuario fue agregado correctamente");
+})
+
