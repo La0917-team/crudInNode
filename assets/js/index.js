@@ -37,10 +37,10 @@ if(window.location.pathname == '/') {
         }
 
         if(confirm("¿Estas seguro de borrar este usuario?")){
-            $.ajax(request).done(function(response)){
+            $.ajax(request).done(function(response){
                 alert("El usuario ha sido eliminado con exito");
                 location.reload();
-            }
+            })
         }
     })
 }
